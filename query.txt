@@ -1,0 +1,3 @@
+select invoiceNo,invoicedate from purchaseinvoice where SID=1 order by PID desc;
+
+select barcode,replace(SUBSTRING(invoicedate,1,7),'-','') as invoicedate,item.EID,newtestinventory.PID,SID,SUBSTRING(suppliers.name,1,3) as si,code,description,srate from item,newtestinventory,purchaseinvoice,suppliers where newtestinventory.PID=purchaseinvoice.PID and suppliers.ID=purchaseinvoice.SID and newtestinventory.EID=item.EID and suppliers.ID=1 and purchaseinvoice.PID=16;
